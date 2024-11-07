@@ -1,0 +1,8 @@
+[submodule "keypop-card-cpp-api"]
+	path = keypop-card-cpp-api
+	url = https://github.com/jeanpierrefortune/keypop-card-cpp-api.git
+	branch = gh-pages
+[submodule "keypop-reader-cpp-api"]
+	path = keypop-reader-cpp-api
+	url = https://github.com/jeanpierrefortune/keypop-reader-cpp-api.git
+	branch = gh-pages
