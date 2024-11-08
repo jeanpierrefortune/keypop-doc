@@ -42,7 +42,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push changes if any
-        if: success() && env.changes_detected == 'true'
+        if: env.changes_detected == 'true'
         run: |
           git push origin HEAD:main
         env:
