@@ -16,10 +16,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: recursive
+          fetch-depth: 0
 
       - name: Update Git submodules
         run: |
-          git submodule update --remote --merge
+          git submodule update --init --recursive
+          git submodule foreach --recursive 'git fetch origin gh-pages'
+          git submodule update --remote --merge -v 
           git add .
           git commit -m "Update submodules to latest commit" || echo "No changes to commit"
 
