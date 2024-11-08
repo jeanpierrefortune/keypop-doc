@@ -1,5 +1,7 @@
 ---
 ---
+# All Keypop API documentation is available below
+
 {% assign dirs = site.pages | map: 'path' | sort %}
 {% assign seen_dirs = "" | split: "," %}
 {% for dir in dirs %}
