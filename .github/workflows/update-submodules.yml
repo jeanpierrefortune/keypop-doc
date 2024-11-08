@@ -33,11 +33,14 @@ jobs:
           git submodule foreach --recursive 'git fetch origin gh-pages'
           git submodule update --remote --merge -v
           git add .
-          if git commit -m "Update submodules to latest commit"; then
-            echo "changes_detected=true" >> $GITHUB_ENV
-          else
+          COMMIT_MSG="Update submodules to latest commit"
+          if git diff-index --quiet HEAD --; then
             echo "No changes to commit"
             echo "changes_detected=false" >> $GITHUB_ENV
+          else
+            git commit -m "$COMMIT_MSG"
+            echo "changes_detected=true" >> $GITHUB_ENV
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
