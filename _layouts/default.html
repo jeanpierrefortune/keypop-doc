@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: " en-US" }}">
+<html lang="{{ site.lang | default: "en-US" }}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% seo %}
-    <link rel="stylesheet" href="{{ "
-    /assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -30,7 +29,7 @@
 
         .breadcrumb li a:hover,
         .breadcrumb li a:focus {
-            font-weight: bold; /* Assuming hover/focus styles are the same */
+            font-weight: bold;
         }
 
         .breadcrumb li::after {
@@ -41,15 +40,26 @@
         .breadcrumb li:last-child::after {
             content: '';
         }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        header img {
+            max-width: 200px;
+            height: auto;
+        }
     </style>
-    <title>Keypop API documentation</title>
+    <title>Keypop API Documentation</title>
 </head>
 <body>
 <div class="wrapper">
     <header>
         <p>
             <a href="{{ "/" | relative_url }}">
-            <img src="https://keypop.org/media/logo-bg-white.svg" width="50%" alt="Logo"/>
+            <img src="https://keypop.org/media/logo-bg-white.svg" style="max-width: 100%; height: auto;" alt="Logo"/>
             </a>
         </p>
         <p>
@@ -79,11 +89,9 @@
         <p>Maintainer:<br><a href="https://projects.eclipse.org/projects/iot.keypop">Eclipse Keypop™</a></p>
         <p>Project Website:<br><a href="https://keypop.org">keypop.org</a></p>
         <p>GitHub repository:<br><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a
-                href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
     </footer>
 </div>
-<script src="{{ "
-/assets/js/scale.fix.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
 </body>
 </html>
