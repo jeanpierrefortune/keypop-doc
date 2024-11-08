@@ -1,140 +1,89 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: " en-US" }}">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  {% seo %}
-  <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
-  <!--[if lt IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <![endif]-->
-  {% include head-custom.html %}
-  <style>
-    .breadcrumb {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 20px 0;
-      display: flex;
-    }
+    {% seo %}
+    <link rel="stylesheet" href="{{ "
+    /assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    {% include head-custom.html %}
+    <style>
+        .breadcrumb {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: flex;
+        }
 
-    .breadcrumb li {
-      margin-right: 10px;
-    }
+        .breadcrumb li {
+            margin-right: 10px;
+        }
 
-    .breadcrumb li a {
-      text-decoration: none;
-    }
+        .breadcrumb li a {
+            text-decoration: none;
+        }
 
-    .breadcrumb li a:hover,
-    .breadcrumb li a:focus {
-      font-weight: bold; /* Assuming hover/focus styles are the same */
-    }
+        .breadcrumb li a:hover,
+        .breadcrumb li a:focus {
+            font-weight: bold; /* Assuming hover/focus styles are the same */
+        }
 
-    .breadcrumb li::after {
-      content: '/';
-      margin-left: 10px;
-    }
+        .breadcrumb li::after {
+            content: '/';
+            margin-left: 10px;
+        }
 
-    .breadcrumb li:last-child::after {
-      content: '';
-    }
-  </style>
+        .breadcrumb li:last-child::after {
+            content: '';
+        }
+    </style>
+    <title>Keypop API documentation</title>
 </head>
 <body>
 <div class="wrapper">
-  <header>
-    <p>
-      <a href="{{ "/" | relative_url }}">
-      <img src="https://keypop.org/media/logo-bg-white.svg" width="50%" alt="Logo" />
-      </a>
-    </p>
-    <p>
-      <strong>API DOCUMENTATION</strong><br>
-      {{ site.title }}
-    </p>
-  </header>
-  <section>
-    <nav aria-label="Breadcrumb">
-      <ul class="breadcrumb">
-        <li><a href="{{ '/' | relative_url }}">home</a></li>
-        {% assign path_parts = page.url | split: '/' %}
-        {% assign breadcrumb_url = "" %}
-        {% for part in path_parts %}
-        {% unless part == "" %}
-        {% assign breadcrumb_url = breadcrumb_url | append: "/" | append: part %}
-        <li>
-          <a href="{{ breadcrumb_url | relative_url }}">{{ part }}</a>
-        </li>
-        {% endunless %}
-        {% endfor %}
-      </ul>
-    </nav>
-
-    <!-- New Table with Bootstrap styling -->
-    <table id="docsTable" class="table table-bordered table-hover tablesorter">
-      <thead class="table-light">
-      <tr>
-        <th scope="col">Type</th>
-        <th scope="col">Language</th>
-        <th scope="col">Documentation</th>
-      </tr>
-      </thead>
-      <tbody>
-      {% assign dirs = site.pages | map: 'path' | sort %}
-      {% assign seen_dirs = "" | split: "," %}
-      {% for dir in dirs %}
-      {% assign parts = dir | split: '/' %}
-      {% if parts.size > 1 %}
-      {% assign subdir = parts[0] %}
-      {% unless subdir == "" or subdir == "." or subdir == "assets" or seen_dirs contains subdir %}
-      {% assign seen_dirs = seen_dirs | push: subdir %}
-      <tr>
-        <td>
-          {% if subdir contains 'api' %}
-          API
-          {% elsif subdir contains 'lib' %}
-          LIB
-          {% else %}
-          -
-          {% endif %}
-        </td>
-        <td>
-          {% if subdir contains 'java' %}
-          Java
-          {% elsif subdir contains 'cpp' %}
-          C++
-          {% else %}
-          -
-          {% endif %}
-        </td>
-        <td>
-          <a href="{{ subdir | relative_url }}">{{ subdir }}</a>
-        </td>
-      </tr>
-      {% endunless %}
-      {% endif %}
-      {% endfor %}
-      </tbody>
-    </table>
-  </section>
-  <footer>
-    <p>Maintainer:<br><a href="https://projects.eclipse.org/projects/iot.keypop">Eclipse Keypop™</a></p>
-    <p>Project Website:<br><a href="https://keypop.org">keypop.org</a></p>
-    <p>GitHub repository:<br><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a></p>
-    <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-  </footer>
+    <header>
+        <p>
+            <a href="{{ "/" | relative_url }}">
+            <img src="https://keypop.org/media/logo-bg-white.svg" width="50%" alt="Logo"/>
+            </a>
+        </p>
+        <p>
+            <strong>API DOCUMENTATION</strong><br>
+            {{ site.title }}
+        </p>
+    </header>
+    <section>
+        <nav aria-label="Breadcrumb">
+            <ul class="breadcrumb">
+                <li><a href="{{ '/' | relative_url }}">home</a></li>
+                {% assign path_parts = page.url | split: '/' %}
+                {% assign breadcrumb_url = "" %}
+                {% for part in path_parts %}
+                {% unless part == "" %}
+                {% assign breadcrumb_url = breadcrumb_url | append: "/" | append: part %}
+                <li>
+                    <a href="{{ breadcrumb_url | relative_url }}">{{ part }}</a>
+                </li>
+                {% endunless %}
+                {% endfor %}
+            </ul>
+        </nav>
+        {{ content }}
+    </section>
+    <footer>
+        <p>Maintainer:<br><a href="https://projects.eclipse.org/projects/iot.keypop">Eclipse Keypop™</a></p>
+        <p>Project Website:<br><a href="https://keypop.org">keypop.org</a></p>
+        <p>GitHub repository:<br><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a
+                href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </footer>
 </div>
-<script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-<script>
-  $(document).ready(function() {
-    $("#docsTable").tablesorter();
-  });
-</script>
+<script src="{{ "
+/assets/js/scale.fix.js" | relative_url }}"></script>
 </body>
 </html>
