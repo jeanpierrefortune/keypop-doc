@@ -27,5 +27,7 @@ jobs:
           git commit -m "Update submodules to latest commit" || echo "No changes to commit"
 
       - name: Push changes
-        run: |
-          git push origin HEAD
+          - run: |
+          - git push origin HEAD:main
+          - env:
+          - GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
