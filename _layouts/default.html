@@ -25,7 +25,6 @@
 
       .breadcrumb li a {
           text-decoration: none;
-          color: var(--link-color, currentColor); /* Use a CSS variable if defined, or fallback to currentColor */
       }
 
       .breadcrumb li a:hover,
@@ -36,7 +35,6 @@
       .breadcrumb li::after {
           content: '/';
           margin-left: 10px;
-          color: inherit; /* Optional: Keeps separators consistent */
       }
 
       .breadcrumb li:last-child::after {
@@ -68,7 +66,7 @@
         {% assign breadcrumb_url = breadcrumb_url | append: "/" | append: part %}
         <li>
           {% if forloop.last %}
-          <span>{{ part | capitalize }}</span>
+          <span>{{ part }}</span>
           {% else %}
           <a href="{{ breadcrumb_url | relative_url }}">{{ part | capitalize }}</a>
           {% endif %}
