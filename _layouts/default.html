@@ -11,6 +11,32 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
   <![endif]-->
   {% include head-custom.html %}
+  <style>
+    .breadcrumb {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .breadcrumb li {
+      margin-right: 10px; /* Adjust the spacing as needed */
+    }
+
+    .breadcrumb li a {
+      text-decoration: none;
+      color: inherit; /* Change the color as necessary */
+    }
+
+    .breadcrumb li::after {
+      content: '/'; /* Separator between items */
+      margin-left: 10px; /* Adjust as needed */
+    }
+
+    .breadcrumb li:last-child::after {
+      content: ''; /* Removes the separator after the last item */
+    }
+  </style>
 </head>
 <body>
 <div class="wrapper">
@@ -45,9 +71,6 @@
         {% endfor %}
       </ul>
     </nav>
-    {{ content }}
-  </section>
-  <section>
     {{ content }}
   </section>
   <footer>
