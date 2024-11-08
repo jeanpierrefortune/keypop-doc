@@ -77,7 +77,7 @@
                 {% unless part == "" %}
                 {% assign breadcrumb_url = breadcrumb_url | append: "/" | append: part %}
                 <li>
-                    <a href="{{ breadcrumb_url | relative_url }}">{{ part }}</a>
+                    <a>{{ part }}</a>
                 </li>
                 {% endunless %}
                 {% endfor %}
