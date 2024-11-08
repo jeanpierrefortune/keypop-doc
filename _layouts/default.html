@@ -12,30 +12,36 @@
   <![endif]-->
   {% include head-custom.html %}
   <style>
-    .breadcrumb {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 20px 0; /* Adds space below the breadcrumb */
-      display: flex;
-    }
+      .breadcrumb {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 20px 0;
+          display: flex;
+      }
 
-    .breadcrumb li {
-      margin-right: 10px; /* Adjust the spacing between items as needed */
-    }
+      .breadcrumb li {
+          margin-right: 10px;
+      }
 
-    .breadcrumb li a {
-      text-decoration: none;
-      color: var(--link-color, #0000EE);
-    }
+      .breadcrumb li a {
+          text-decoration: none;
+          color: var(--link-color, currentColor); /* Use a CSS variable if defined, or fallback to currentColor */
+      }
 
-    .breadcrumb li::after {
-      content: '/'; /* Separator between items */
-      margin-left: 10px; /* Adjust as needed */
-    }
+      .breadcrumb li a:hover,
+      .breadcrumb li a:focus {
+          font-weight: bold; /* Assuming hover/focus styles are the same */
+      }
 
-    .breadcrumb li:last-child::after {
-      content: ''; /* Removes the separator after the last item */
-    }
+      .breadcrumb li::after {
+          content: '/';
+          margin-left: 10px;
+          color: inherit; /* Optional: Keeps separators consistent */
+      }
+
+      .breadcrumb li:last-child::after {
+          content: '';
+      }
   </style>
 </head>
 <body>
