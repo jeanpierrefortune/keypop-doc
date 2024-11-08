@@ -58,18 +58,14 @@
   <section>
     <nav aria-label="Breadcrumb">
       <ul class="breadcrumb">
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/' | relative_url }}">home</a></li>
         {% assign path_parts = page.url | split: '/' %}
         {% assign breadcrumb_url = "" %}
         {% for part in path_parts %}
         {% unless part == "" %}
         {% assign breadcrumb_url = breadcrumb_url | append: "/" | append: part %}
         <li>
-          {% if forloop.last %}
-          <span>{{ part }}</span>
-          {% else %}
-          <a href="{{ breadcrumb_url | relative_url }}">{{ part | capitalize }}</a>
-          {% endif %}
+          <a href="{{ breadcrumb_url | relative_url }}">{{ part }}</a>
         </li>
         {% endunless %}
         {% endfor %}

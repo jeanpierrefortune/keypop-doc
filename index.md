@@ -1,6 +1,6 @@
 ---
 ---
-#### All Keypop API documentation is available below
+#### All available Keypop API documentation can be found below
 
 {% assign dirs = site.pages | map: 'path' | sort %}
 {% assign seen_dirs = "" | split: "," %}
