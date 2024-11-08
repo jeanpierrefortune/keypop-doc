@@ -21,16 +21,29 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: Set Git user identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Update Git submodules
+        id: commit
         run: |
           git submodule update --init --recursive
           git submodule foreach --recursive 'git fetch origin gh-pages'
-          git submodule update --remote --merge -v 
+          git submodule update --remote --merge -v
           git add .
-          git commit -m "Update submodules to latest commit" || echo "No changes to commit"
+          if git commit -m "Update submodules to latest commit"; then
+            echo "changes_detected=true" >> $GITHUB_ENV
+          else
+            echo "No changes to commit"
+            echo "changes_detected=false" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Push changes
+      - name: Push changes if any
+        if: success() && env.changes_detected == 'true'
         run: |
-          git push origin HEAD:main  # Specify the branch to push to
+          git push origin HEAD:main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
