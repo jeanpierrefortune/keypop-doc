@@ -76,7 +76,7 @@
                 {% unless part == "" %}
                 {% assign breadcrumb_url = breadcrumb_url | append: "/" | append: part %}
                 <li>
-                    <a>{{ part }}</a>
+                    {{ part }}
                 </li>
                 {% endunless %}
                 {% endfor %}
