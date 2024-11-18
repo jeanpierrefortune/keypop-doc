@@ -1,4 +1,4 @@
-theme: just-the-docs
+theme: jekyll-theme-slate
 title: Keypop API Documentation
 plugins:
   - jekyll-sitemap
