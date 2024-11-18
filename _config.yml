@@ -1,4 +1,6 @@
 theme: jekyll-theme-minimal
 title: Keypop API Documentation
+plugins:
+  - jekyll-sitemap
 include:
   - "_*.html"
