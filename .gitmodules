@@ -6,3 +6,11 @@
 	path = keypop-reader-cpp-api
 	url = https://github.com/jeanpierrefortune/keypop-reader-cpp-api.git
 	branch = gh-pages
+[submodule "keypop-card-java-api"]
+	path = keypop-card-java-api
+	url = https://github.com/jeanpierrefortune/keypop-card-java-api.git
+	branch = gh-pages
+[submodule "keypop-reader-java-api"]
+	path = keypop-reader-java-api
+	url = https://github.com/jeanpierrefortune/keypop-reader-java-api.git
+	branch = gh-pages
